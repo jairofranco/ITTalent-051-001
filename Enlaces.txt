@@ -1,1 +1,2 @@
 https://anadea.info/blog/how-to-integrate-google-maps-into-ruby-on-rails-app
+https://www.lucidchart.com/pages/es/qu%C3%A9-es-un-diagrama-entidad-relaci%C3%B3n
