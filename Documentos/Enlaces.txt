@@ -3,4 +3,4 @@ https://www.lucidchart.com/pages/es/qu%C3%A9-es-un-diagrama-entidad-relaci%C3%B3
 http://www.postgresqltutorial.com/postgresql-show-databases/
 https://www.postgresql.org/download/windows/
 https://desktop.github.com/
-otro 
+https://medium.com/into-the-forest/rails-migrations-tricks-guide-code-cheatsheet-included-dca935354f22
