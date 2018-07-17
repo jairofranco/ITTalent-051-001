@@ -17,7 +17,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create picture" do
     assert_difference('Picture.count') do
-      post pictures_url, params: { picture: { Coordinate: @picture.Coordinate } }
+      post pictures_url, params: { picture: { coordinate: @picture.coordinate, picture: @picture.picture } }
     end
 
     assert_redirected_to picture_url(Picture.last)
@@ -34,7 +34,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update picture" do
-    patch picture_url(@picture), params: { picture: { Coordinate: @picture.Coordinate } }
+    patch picture_url(@picture), params: { picture: { coordinate: @picture.coordinate, picture: @picture.picture } }
     assert_redirected_to picture_url(@picture)
   end
 

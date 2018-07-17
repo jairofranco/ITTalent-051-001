@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712211912) do
+ActiveRecord::Schema.define(version: 20180717214108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,23 @@ ActiveRecord::Schema.define(version: 20180712211912) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.float    "coordinate"
+    t.binary   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "points_id"
+    t.index ["points_id"], name: "index_pictures_on_points_id", using: :btree
+  end
+
   create_table "points", force: :cascade do |t|
     t.float    "coordinate"
     t.string   "convention"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "conventions_id"
+    t.index ["conventions_id"], name: "index_points_on_conventions_id", using: :btree
   end
 
   create_table "reports", force: :cascade do |t|
@@ -36,8 +47,8 @@ ActiveRecord::Schema.define(version: 20180712211912) do
     t.date     "date"
     t.string   "observation"
     t.float    "coordinate"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "visitors_id"
     t.integer  "points_id"
     t.index ["points_id"], name: "index_reports_on_points_id", using: :btree
@@ -66,10 +77,13 @@ ActiveRecord::Schema.define(version: 20180712211912) do
     t.string   "name"
     t.string   "phone"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["mail"], name: "visitors_mail_key", unique: true, using: :btree
   end
 
+  add_foreign_key "pictures", "points", column: "points_id"
+  add_foreign_key "points", "conventions", column: "conventions_id"
   add_foreign_key "reports", "points", column: "points_id"
   add_foreign_key "reports", "visitors", column: "visitors_id"
 end
