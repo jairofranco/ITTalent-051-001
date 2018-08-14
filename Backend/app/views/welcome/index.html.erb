@@ -1,2 +1,8 @@
-<h1>BIENVENIDO A JABOQUE</h1>
-<p>Aplicacion en desarrollo......</p>
+<main>
+    <% if user_signed_in? %>
+        <h1>BIENVENIDO A JABOQUE</h1>
+        <h2>Usuario: <%= current_user.name %></h2>
+    <% else %>
+        <h1> JABOQUE <h1>
+    <% end %>
+</main>

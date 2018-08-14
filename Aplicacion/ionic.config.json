@@ -1,0 +1,7 @@
+{
+  "name": "jaboque-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
